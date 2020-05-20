@@ -1,0 +1,70 @@
+﻿@page
+@model SEER.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BibliographicReference</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BibliographicReference.Year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BibliographicReference.Year)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BibliographicReference.Number)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BibliographicReference.Number)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BibliographicReference.Volume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BibliographicReference.Volume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BibliographicReference.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BibliographicReference.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BibliographicReference.Author)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BibliographicReference.Author)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BibliographicReference.Source)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BibliographicReference.Source)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BibliographicReference.DOI)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BibliographicReference.DOI)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BibliographicReference.PageNumbers)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BibliographicReference.PageNumbers)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="BibliographicReference.ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
