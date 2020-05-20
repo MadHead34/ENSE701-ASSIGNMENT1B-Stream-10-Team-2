@@ -14,21 +14,6 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="BibliographicReference.Year" class="control-label"></label>
-                <input asp-for="BibliographicReference.Year" class="form-control" />
-                <span asp-validation-for="BibliographicReference.Year" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BibliographicReference.Number" class="control-label"></label>
-                <input asp-for="BibliographicReference.Number" class="form-control" />
-                <span asp-validation-for="BibliographicReference.Number" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BibliographicReference.Volume" class="control-label"></label>
-                <input asp-for="BibliographicReference.Volume" class="form-control" />
-                <span asp-validation-for="BibliographicReference.Volume" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="BibliographicReference.Title" class="control-label"></label>
                 <input asp-for="BibliographicReference.Title" class="form-control" />
                 <span asp-validation-for="BibliographicReference.Title" class="text-danger"></span>
@@ -44,14 +29,29 @@
                 <span asp-validation-for="BibliographicReference.Source" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BibliographicReference.DOI" class="control-label"></label>
-                <input asp-for="BibliographicReference.DOI" class="form-control" />
-                <span asp-validation-for="BibliographicReference.DOI" class="text-danger"></span>
+                <label asp-for="BibliographicReference.Year" class="control-label"></label>
+                <input asp-for="BibliographicReference.Year" class="form-control" />
+                <span asp-validation-for="BibliographicReference.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BibliographicReference.Volume" class="control-label"></label>
+                <input asp-for="BibliographicReference.Volume" class="form-control" />
+                <span asp-validation-for="BibliographicReference.Volume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BibliographicReference.Number" class="control-label"></label>
+                <input asp-for="BibliographicReference.Number" class="form-control" />
+                <span asp-validation-for="BibliographicReference.Number" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BibliographicReference.PageNumbers" class="control-label"></label>
                 <input asp-for="BibliographicReference.PageNumbers" class="form-control" />
                 <span asp-validation-for="BibliographicReference.PageNumbers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BibliographicReference.DOI" class="control-label"></label>
+                <input asp-for="BibliographicReference.DOI" class="form-control" />
+                <span asp-validation-for="BibliographicReference.DOI" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

@@ -14,15 +14,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].Year)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].Number)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].Volume)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.BibliographicReference[0].Title)
             </th>
             <th>
@@ -32,10 +23,19 @@
                 @Html.DisplayNameFor(model => model.BibliographicReference[0].Source)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].DOI)
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].Volume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].Number)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.BibliographicReference[0].PageNumbers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].DOI)
             </th>
             <th></th>
         </tr>
@@ -43,15 +43,6 @@
     <tbody>
 @foreach (var item in Model.BibliographicReference) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Year)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Number)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Volume)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
@@ -62,10 +53,19 @@
                 @Html.DisplayFor(modelItem => item.Source)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DOI)
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Volume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PageNumbers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOI)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
