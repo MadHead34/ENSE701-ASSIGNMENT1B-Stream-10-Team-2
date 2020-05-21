@@ -1,11 +1,11 @@
-﻿@page "{id:int?}"
-@model SEER.EditModel
+﻿@page
+@model SEER.SearchModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Search";
 }
 
-<h1>Edit</h1>
+<h1>Search</h1>
 
 <h4>BibliographicReference</h4>
 <hr />
@@ -13,7 +13,6 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="BibliographicReference.ID" />
             <div class="form-group">
                 <label asp-for="BibliographicReference.Title" class="control-label"></label>
                 <input asp-for="BibliographicReference.Title" class="form-control" />
@@ -55,14 +54,14 @@
                 <span asp-validation-for="BibliographicReference.DOI" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {
