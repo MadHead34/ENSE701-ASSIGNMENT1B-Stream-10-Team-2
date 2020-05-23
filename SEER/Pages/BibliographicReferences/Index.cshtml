@@ -14,11 +14,13 @@
 <form>
     <p>
         Title: <input type="text" asp-for="SearchTitle" />
+        Author: <input type="text" asp-for="SearchAuthor" />
         Source: <select asp-for="SearchSource" asp-items="Model.Sources">
             <option value="">All</option>
         </select>
         Year: <input type="number" value="1970" min="1970" max="2020" asp-for="SearchYearStart" />
         to <input type="number" value="2020" min="1970" max="2020" asp-for="SearchYearEnd" />
+        <br />
         DOI: <input type="text" asp-for="SearchDOI" />
         <input type="submit" value="Filter" />
     </p>

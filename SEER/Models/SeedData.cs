@@ -89,7 +89,7 @@ namespace SEER.Models
             }
             catch (Exception ex)
             {
-                Console.Error.WriteLine(ex.Message);
+                throw;
             }
         }
     }
