@@ -50,20 +50,11 @@ namespace SEER.Models
                             case "publisher":
                                 journal = replaced;
                                 break;
-                            case "pages":
-                                pageNum = replaced;
-                                break;
                             case "doi":
                                 doi = replaced;
                                 break;
                             case "year":
                                 year = int.Parse(replaced);
-                                break;
-                            case "volume":
-                                volume = int.Parse(replaced);
-                                break;
-                            case "number":
-                                number = int.Parse(replaced);
                                 break;
                             default:
                                 Console.Error.WriteLine($"Unknown key {pair.Key} with value {pair.Value} in bibtex entry.");
@@ -77,11 +68,8 @@ namespace SEER.Models
                             Title = title == null ? "Unknown" : title,
                             Author = author == null ? "Unknown" : author,
                             Source = journal == null ? "Unknown" : journal,
-                            PageNumbers = pageNum == null ? "Unknown" : pageNum,
                             DOI = doi == null ? "Unknown" : doi,
-                            Year = year.GetValueOrDefault(),
-                            Volume = volume.GetValueOrDefault(),
-                            Number = number.GetValueOrDefault()
+                            Year = year.GetValueOrDefault()
                         }
                     );
                 }
@@ -89,6 +77,7 @@ namespace SEER.Models
             }
             catch (Exception ex)
             {
+                // THROW THOSE STINKY EXCEPTIONS AWAY
                 throw;
             }
         }

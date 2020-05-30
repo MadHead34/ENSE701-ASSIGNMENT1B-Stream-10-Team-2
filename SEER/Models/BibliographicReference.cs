@@ -21,12 +21,6 @@ namespace SEER.Models
         [Range(1970, 2020)]
         public int Year { get; set; }
         [Display(Order = 0)]
-        public int Volume { get; set; } // This is probably only meaningful for journal articles that have volumes? Possibly books if there are multiple editions? I don't know how APA handles this
-        [Display(Order = 0)]
-        public int Number { get; set; } // Not sure what this is, it seems to follow the volume in APA so something to do with editions?
-        [Display(Name = "Pages", Prompt = "100-200", Order = 0)]
-        public string PageNumbers { get; set; }
-        [Display(Order = 0)]
         [Url(ErrorMessage = "Enter a Url")]
         public string DOI { get; set; }
     }
