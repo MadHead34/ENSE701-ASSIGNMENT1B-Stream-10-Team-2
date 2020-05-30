@@ -33,8 +33,8 @@ namespace SEER.Models
 
                 foreach (BibtexEntry entry in file.Entries)
                 {
-                    string? title = null, author = null, journal = null, pageNum = null, doi = null;
-                    int? year = null, volume = null, number = null;
+                    string? title = null, author = null, journal = null, doi = null;
+                    int? year = null;
                     foreach (KeyValuePair<string, string> pair in entry.Tags)
                     {
                         string replaced = pair.Value.Replace("{", "", StringComparison.Ordinal).Replace("}", "", StringComparison.Ordinal).Replace("\\", "", StringComparison.Ordinal);
