@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>References</h1>
+<h1>Index</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -23,6 +23,21 @@
         <br />
         DOI: <input type="text" asp-for="SearchDOI" />
         <input type="submit" value="Filter" />
+        SE Method: <select asp-for="SearchSEMethod" asp-items="Model.SEMethod">
+            <option value="">All</option>
+        </select>
+        SE Practice: <select asp-for="SearchSEPractice" asp-items="Model.SEPractice">
+            <option value="">All</option>
+        </select>
+        Research Method: <select asp-for="SearchMethod" asp-items="Model.ResearchMethod">
+            <option value="">All</option>
+        </select>
+        Research Participants: <select asp-for="SearchParticipants" asp-items="Model.ResearchParticipants">
+            <option value="">All</option>
+        </select>
+        Research Result: <select asp-for="SearchResult" asp-items="Model.ResearchResult">
+            <option value="">All</option>
+        </select>
     </p>
 </form>
 
@@ -42,16 +57,22 @@
                 @Html.DisplayNameFor(model => model.BibliographicReference[0].Year)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].Volume)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].Number)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].PageNumbers)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.BibliographicReference[0].DOI)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].SEMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].Practice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].Method)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].Participant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].Result)
             </th>
             <th></th>
         </tr>
@@ -72,16 +93,22 @@
                 @Html.DisplayFor(modelItem => item.Year)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Volume)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Number)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PageNumbers)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.DOI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SEMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Practice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Method)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Participant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

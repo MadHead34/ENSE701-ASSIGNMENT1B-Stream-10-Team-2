@@ -82,13 +82,13 @@ namespace SEER
 
             // Use LINQ to get a list of research outcomes.
             IQueryable<string> resultQuery = from r in _context.BibliographicReference
-                                              orderby r.Result
-                                              select r.Result;
+                                             orderby r.Result
+                                             select r.Result;
 
             var references = from r in _context.BibliographicReference
-                            select r;
+                             select r;
 
-            if(!string.IsNullOrEmpty(SearchTitle))
+            if (!string.IsNullOrEmpty(SearchTitle))
             {
                 references = references.Where(s => s.Title.Contains(SearchTitle));
             }
@@ -128,12 +128,12 @@ namespace SEER
                 references = references.Where(s => s.Author.Contains(SearchAuthor));
             }
 
-            if(!string.IsNullOrEmpty(SearchDOI))
+            if (!string.IsNullOrEmpty(SearchDOI))
             {
                 references = references.Where(s => s.DOI.Contains(SearchDOI));
             }
 
-            if(SearchYearStart >= 1970 && SearchYearStart <= 2020 && SearchYearEnd >= 1970 && SearchYearEnd <= 2020)
+            if (SearchYearStart >= 1970 && SearchYearStart <= 2020 && SearchYearEnd >= 1970 && SearchYearEnd <= 2020)
             {
                 references = references.Where(s => s.Year >= SearchYearStart && s.Year <= SearchYearEnd);
             }

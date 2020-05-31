@@ -31,15 +31,15 @@ namespace SEER.Models
         public string SEMethod { get; set; }
         [Required]
         [Display(Name = "SE Practice")]
-        public string SEPractice { get; set; }
+        public string Practice { get; set; }
         [Required]
         [Display(Name = "Research Method")]
-        public string ResearchMethod { get; set; }
+        public string Method { get; set; }
         [Required]
         [Display(Name = "Research Participants")]
-        public string ResearchParticipants { get; set; }
+        public string Participant { get; set; }
         [Required]
         [Display(Name = "Research Result")]
-        public string ResearchResult { get; set; }
+        public string Result { get; set; }
     }
 }
