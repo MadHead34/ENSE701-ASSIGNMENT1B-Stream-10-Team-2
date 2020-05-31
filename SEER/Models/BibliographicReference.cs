@@ -16,12 +16,30 @@ namespace SEER.Models
         [Required]
         public string Author { get; set; }
         [Display(Order = 0)]
+        [Required]
         public string Source { get; set; } // This is the source of where the reference came from e.g. journal/web address for articles/web pages and publisher for books
+        [Required]
         [Display(Prompt = "2020", Order = 0)]
         [Range(1970, 2020)]
         public int Year { get; set; }
+        [Required]
         [Display(Order = 0)]
         [Url(ErrorMessage = "Enter a Url")]
         public string DOI { get; set; }
+        [Required]
+        [Display(Name = "SE Method")]
+        public string SEMethod { get; set; }
+        [Required]
+        [Display(Name = "SE Practice")]
+        public string SEPractice { get; set; }
+        [Required]
+        [Display(Name = "Research Method")]
+        public string ResearchMethod { get; set; }
+        [Required]
+        [Display(Name = "Research Participants")]
+        public string ResearchParticipants { get; set; }
+        [Required]
+        [Display(Name = "Research Result")]
+        public string ResearchResult { get; set; }
     }
 }
