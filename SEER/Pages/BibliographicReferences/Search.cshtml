@@ -1,15 +1,41 @@
 ﻿@page
-@model SEER.AdminModel
+@model SEER.SearchModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Admin</h1>
+<h1>Article Search</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<form>
+    <p>
+        Title: <input type="text" asp-for="SearchTitle" />
+        Author: <input type="text" asp-for="SearchAuthor" />
+        Source: <select asp-for="SearchSource" asp-items="Model.Sources">
+            <option value="">All</option>
+        </select>
+        Year: <input type="number" value="1970" min="1970" max="2020" asp-for="SearchYearStart" />
+        to <input type="number" value="2020" min="1970" max="2020" asp-for="SearchYearEnd" />
+        <br />
+        DOI: <input type="text" asp-for="SearchDOI" />
+        SE Method: <select asp-for="SearchSEMethod" asp-items="Model.SEMethod">
+            <option value="">All</option>
+        </select>
+        SE Practice: <select asp-for="SearchSEPractice" asp-items="Model.SEPractice">
+            <option value="">All</option>
+        </select>
+        Research Method: <select asp-for="SearchMethod" asp-items="Model.ResearchMethod">
+            <option value="">All</option>
+        </select>
+        Research Participants: <select asp-for="SearchParticipants" asp-items="Model.ResearchParticipants">
+            <option value="">All</option>
+        </select>
+        Research Result: <select asp-for="SearchResult" asp-items="Model.ResearchResult">
+            <option value="">All</option>
+        </select>
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 
 <table class="table">
     <thead>
@@ -79,11 +105,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Result)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
             </td>
         </tr>
 }
