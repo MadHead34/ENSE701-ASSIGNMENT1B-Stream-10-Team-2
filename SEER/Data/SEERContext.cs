@@ -15,5 +15,7 @@ namespace SEER.Data
         }
 
         public DbSet<SEER.Models.BibliographicReference> BibliographicReference { get; set; }
+
+        public DbSet<SEER.Models.AcceptedArticle> AcceptedArticle { get; set; }
     }
 }
