@@ -26,19 +26,14 @@ namespace SEER.Models
         [Display(Order = 0)]
         [Url(ErrorMessage = "Enter a Url")]
         public string DOI { get; set; }
-        [Required]
         [Display(Name = "SE Method")]
         public string SEMethod { get; set; }
-        [Required]
         [Display(Name = "SE Practice")]
         public string Practice { get; set; }
-        [Required]
         [Display(Name = "Research Method")]
         public string Method { get; set; }
-        [Required]
         [Display(Name = "Research Participants")]
         public string Participant { get; set; }
-        [Required]
         [Display(Name = "Research Result")]
         public string Result { get; set; }
     }
