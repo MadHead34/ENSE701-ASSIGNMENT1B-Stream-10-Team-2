@@ -25,6 +25,21 @@
             <th>
                 @Html.DisplayNameFor(model => model.AcceptedArticle[0].DOI)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcceptedArticle[0].SEMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcceptedArticle[0].Practice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcceptedArticle[0].Method)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcceptedArticle[0].Participant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcceptedArticle[0].Result)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -45,6 +60,21 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DOI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SEMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Practice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Method)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Participant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
