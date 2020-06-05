@@ -10,11 +10,11 @@ using SEER.Models;
 
 namespace SEER
 {
-    public class AcceptModel : PageModel
+    public class AcceptArticleModel : PageModel
     {
         private readonly SEER.Data.SEERContext _context;
 
-        public AcceptModel(SEER.Data.SEERContext context)
+        public AcceptArticleModel(SEER.Data.SEERContext context)
         {
             _context = context;
         }

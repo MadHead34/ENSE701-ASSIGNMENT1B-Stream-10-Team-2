@@ -1,5 +1,5 @@
 ﻿@page
-@model SEER.AcceptModel
+@model SEER.AcceptArticleModel
 
 @{
     ViewData["Title"] = "Delete";
@@ -45,7 +45,7 @@
     
     <form method="post">
         <input type="hidden" asp-for="AcceptedArticle.ID" />
-        <input type="submit" value="Accept" class="btn btn-light" /> |
+        <input type="submit" value="Accept" class="btn btn-primary" /> |
         <a asp-page="./Index">Back to List</a>
     </form>
 </div>

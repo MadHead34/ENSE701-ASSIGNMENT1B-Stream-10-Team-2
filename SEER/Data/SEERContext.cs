@@ -19,5 +19,7 @@ namespace SEER.Data
         public DbSet<SEER.Models.AcceptedArticle> AcceptedArticle { get; set; }
 
         public DbSet<SEER.Models.InitialArticle> InitialArticle { get; set; }
+
+        public DbSet<SEER.Models.RejectedArticle> RejectedArticle { get; set; }
     }
 }
