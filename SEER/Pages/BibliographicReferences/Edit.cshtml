@@ -1,13 +1,11 @@
-﻿@page "{id:int?}"
+﻿@page
 @model SEER.EditModel
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>BibliographicReference</h4>
+<h1>Edit an Article</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -35,24 +33,34 @@
                 <span asp-validation-for="BibliographicReference.Year" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BibliographicReference.Volume" class="control-label"></label>
-                <input asp-for="BibliographicReference.Volume" class="form-control" />
-                <span asp-validation-for="BibliographicReference.Volume" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BibliographicReference.Number" class="control-label"></label>
-                <input asp-for="BibliographicReference.Number" class="form-control" />
-                <span asp-validation-for="BibliographicReference.Number" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BibliographicReference.PageNumbers" class="control-label"></label>
-                <input asp-for="BibliographicReference.PageNumbers" class="form-control" />
-                <span asp-validation-for="BibliographicReference.PageNumbers" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="BibliographicReference.DOI" class="control-label"></label>
                 <input asp-for="BibliographicReference.DOI" class="form-control" />
                 <span asp-validation-for="BibliographicReference.DOI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BibliographicReference.SEMethod" class="control-label"></label>
+                <input asp-for="BibliographicReference.SEMethod" class="form-control" />
+                <span asp-validation-for="BibliographicReference.SEMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BibliographicReference.Practice" class="control-label"></label>
+                <input asp-for="BibliographicReference.Practice" class="form-control" />
+                <span asp-validation-for="BibliographicReference.Practice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BibliographicReference.Method" class="control-label"></label>
+                <input asp-for="BibliographicReference.Method" class="form-control" />
+                <span asp-validation-for="BibliographicReference.Method" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BibliographicReference.Participant" class="control-label"></label>
+                <input asp-for="BibliographicReference.Participant" class="form-control" />
+                <span asp-validation-for="BibliographicReference.Participant" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BibliographicReference.Result" class="control-label"></label>
+                <input asp-for="BibliographicReference.Result" class="form-control" />
+                <span asp-validation-for="BibliographicReference.Result" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

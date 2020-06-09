@@ -1,0 +1,57 @@
+﻿@page
+@model SEER.ModerateModel
+
+@{
+    ViewData["Title"] = "Moderate";
+}
+
+<h1>Moderate</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.InitialArticle[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InitialArticle[0].Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InitialArticle[0].Source)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InitialArticle[0].Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InitialArticle[0].DOI)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.InitialArticle) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOI)
+            </td>
+            <td>
+                <a asp-page="./ModerateEdit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Reject" asp-route-id="@item.ID">Reject</a> |
+                <a asp-page="./Accept" asp-route-id="@item.ID">Accept</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

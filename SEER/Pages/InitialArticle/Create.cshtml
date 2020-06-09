@@ -1,0 +1,49 @@
+﻿@page
+@model SEER.SubmitModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Submit an Article</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="InitialArticle.Title" class="control-label"></label>
+                <input asp-for="InitialArticle.Title" class="form-control" />
+                <span asp-validation-for="InitialArticle.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InitialArticle.Author" class="control-label"></label>
+                <input asp-for="InitialArticle.Author" class="form-control" />
+                <span asp-validation-for="InitialArticle.Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InitialArticle.Source" class="control-label"></label>
+                <input asp-for="InitialArticle.Source" class="form-control" />
+                <span asp-validation-for="InitialArticle.Source" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InitialArticle.Year" class="control-label"></label>
+                <input asp-for="InitialArticle.Year" class="form-control" />
+                <span asp-validation-for="InitialArticle.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InitialArticle.DOI" class="control-label"></label>
+                <input asp-for="InitialArticle.DOI" class="form-control" />
+                <span asp-validation-for="InitialArticle.DOI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

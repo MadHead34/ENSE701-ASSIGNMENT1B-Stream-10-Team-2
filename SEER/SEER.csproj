@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200531014306_FixedFields.cs" />
+    <Compile Remove="Migrations\20200531014306_FixedFields.Designer.cs" />
+    <Compile Remove="Migrations\20200604110913_CreateArticleTables.cs" />
+    <Compile Remove="Migrations\20200604110913_CreateArticleTables.Designer.cs" />
+    <Compile Remove="Migrations\20200605005449_test.cs" />
+    <Compile Remove="Migrations\20200605005449_test.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BibtexLibrary" Version="1.3.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>

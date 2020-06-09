@@ -2,68 +2,111 @@
 @model SEER.SearchModel
 
 @{
-    ViewData["Title"] = "Search";
+    ViewData["Title"] = "Index";
 }
 
-<h1>Search</h1>
+<h1>Article Search</h1>
 
-<h4>BibliographicReference</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="BibliographicReference.Title" class="control-label"></label>
-                <input asp-for="BibliographicReference.Title" class="form-control" />
-                <span asp-validation-for="BibliographicReference.Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BibliographicReference.Author" class="control-label"></label>
-                <input asp-for="BibliographicReference.Author" class="form-control" />
-                <span asp-validation-for="BibliographicReference.Author" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BibliographicReference.Source" class="control-label"></label>
-                <input asp-for="BibliographicReference.Source" class="form-control" />
-                <span asp-validation-for="BibliographicReference.Source" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BibliographicReference.Year" class="control-label"></label>
-                <input asp-for="BibliographicReference.Year" class="form-control" />
-                <span asp-validation-for="BibliographicReference.Year" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BibliographicReference.Volume" class="control-label"></label>
-                <input asp-for="BibliographicReference.Volume" class="form-control" />
-                <span asp-validation-for="BibliographicReference.Volume" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BibliographicReference.Number" class="control-label"></label>
-                <input asp-for="BibliographicReference.Number" class="form-control" />
-                <span asp-validation-for="BibliographicReference.Number" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BibliographicReference.PageNumbers" class="control-label"></label>
-                <input asp-for="BibliographicReference.PageNumbers" class="form-control" />
-                <span asp-validation-for="BibliographicReference.PageNumbers" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BibliographicReference.DOI" class="control-label"></label>
-                <input asp-for="BibliographicReference.DOI" class="form-control" />
-                <span asp-validation-for="BibliographicReference.DOI" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+<form>
+    <p>
+        Title: <input type="text" asp-for="SearchTitle" />
+        Author: <input type="text" asp-for="SearchAuthor" />
+        Source: <select asp-for="SearchSource" asp-items="Model.Sources">
+            <option value="">All</option>
+        </select>
+        Year: <input type="number" value="1970" min="1970" max="2020" asp-for="SearchYearStart" />
+        to <input type="number" value="2020" min="1970" max="2020" asp-for="SearchYearEnd" />
+        <br />
+        DOI: <input type="text" asp-for="SearchDOI" />
+        SE Method: <select asp-for="SearchSEMethod" asp-items="Model.SEMethod">
+            <option value="">All</option>
+        </select>
+        SE Practice: <select asp-for="SearchSEPractice" asp-items="Model.SEPractice">
+            <option value="">All</option>
+        </select>
+        Research Method: <select asp-for="SearchMethod" asp-items="Model.ResearchMethod">
+            <option value="">All</option>
+        </select>
+        Research Participants: <select asp-for="SearchParticipants" asp-items="Model.ResearchParticipants">
+            <option value="">All</option>
+        </select>
+        Research Result: <select asp-for="SearchResult" asp-items="Model.ResearchResult">
+            <option value="">All</option>
+        </select>
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].Source)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].DOI)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].SEMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].Practice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].Method)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].Participant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BibliographicReference[0].Result)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.BibliographicReference) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SEMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Practice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Method)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Participant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result)
+            </td>
+        </tr>
 }
+    </tbody>
+</table>

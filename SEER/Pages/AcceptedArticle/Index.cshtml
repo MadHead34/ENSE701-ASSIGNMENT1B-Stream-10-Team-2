@@ -1,54 +1,50 @@
 ﻿@page
-@model SEER.AdminModel
+@model SEER.IndexModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Admin</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<h1>Articles to be Analysed</h1>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].Title)
+                @Html.DisplayNameFor(model => model.AcceptedArticle[0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].Author)
+                @Html.DisplayNameFor(model => model.AcceptedArticle[0].Author)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].Source)
+                @Html.DisplayNameFor(model => model.AcceptedArticle[0].Source)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].Year)
+                @Html.DisplayNameFor(model => model.AcceptedArticle[0].Year)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].DOI)
+                @Html.DisplayNameFor(model => model.AcceptedArticle[0].DOI)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].SEMethod)
+                @Html.DisplayNameFor(model => model.AcceptedArticle[0].SEMethod)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].Practice)
+                @Html.DisplayNameFor(model => model.AcceptedArticle[0].Practice)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].Method)
+                @Html.DisplayNameFor(model => model.AcceptedArticle[0].Method)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].Participant)
+                @Html.DisplayNameFor(model => model.AcceptedArticle[0].Participant)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BibliographicReference[0].Result)
+                @Html.DisplayNameFor(model => model.AcceptedArticle[0].Result)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.BibliographicReference) {
+@foreach (var item in Model.AcceptedArticle) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
@@ -82,8 +78,7 @@
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-page="./Delete" asp-route-id="@item.ID">Accept</a>
             </td>
         </tr>
 }
