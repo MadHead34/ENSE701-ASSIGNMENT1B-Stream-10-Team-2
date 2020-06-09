@@ -1,0 +1,78 @@
+﻿@page
+@model SEER.AddModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit an Article</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AcceptedArticle.ID" />
+            <div class="form-group">
+                <label asp-for="AcceptedArticle.Title" class="control-label"></label>
+                <input asp-for="AcceptedArticle.Title" class="form-control" />
+                <span asp-validation-for="AcceptedArticle.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcceptedArticle.Author" class="control-label"></label>
+                <input asp-for="AcceptedArticle.Author" class="form-control" />
+                <span asp-validation-for="AcceptedArticle.Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcceptedArticle.Source" class="control-label"></label>
+                <input asp-for="AcceptedArticle.Source" class="form-control" />
+                <span asp-validation-for="AcceptedArticle.Source" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcceptedArticle.Year" class="control-label"></label>
+                <input asp-for="AcceptedArticle.Year" class="form-control" />
+                <span asp-validation-for="AcceptedArticle.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcceptedArticle.DOI" class="control-label"></label>
+                <input asp-for="AcceptedArticle.DOI" class="form-control" />
+                <span asp-validation-for="AcceptedArticle.DOI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcceptedArticle.SEMethod" class="control-label"></label>
+                <input asp-for="AcceptedArticle.SEMethod" class="form-control" />
+                <span asp-validation-for="AcceptedArticle.SEMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcceptedArticle.Practice" class="control-label"></label>
+                <input asp-for="AcceptedArticle.Practice" class="form-control" />
+                <span asp-validation-for="AcceptedArticle.Practice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcceptedArticle.Method" class="control-label"></label>
+                <input asp-for="AcceptedArticle.Method" class="form-control" />
+                <span asp-validation-for="AcceptedArticle.Method" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcceptedArticle.Participant" class="control-label"></label>
+                <input asp-for="AcceptedArticle.Participant" class="form-control" />
+                <span asp-validation-for="AcceptedArticle.Participant" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcceptedArticle.Result" class="control-label"></label>
+                <input asp-for="AcceptedArticle.Result" class="form-control" />
+                <span asp-validation-for="AcceptedArticle.Result" class="text-danger"></span>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
