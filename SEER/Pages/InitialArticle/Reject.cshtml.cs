@@ -12,11 +12,11 @@ using SEER.Models;
 
 namespace SEER
 {
-    public class AcceptModel : PageModel
+    public class RejectModel : PageModel
     {
         private readonly SEER.Data.SEERContext _context;
 
-        public AcceptModel(SEER.Data.SEERContext context)
+        public RejectModel(SEER.Data.SEERContext context)
         {
             _context = context;
         }
@@ -51,8 +51,8 @@ namespace SEER
 
             if (InitialArticle != null)
             {
-                _context.AcceptedArticle.Add(
-                    new AcceptedArticle
+                _context.RejectedArticle.Add(
+                    new RejectedArticle
                     {
                         Title = InitialArticle.Title,
                         Author = InitialArticle.Author,
@@ -65,10 +65,8 @@ namespace SEER
                 {
                     string body = $@"Dear {(String.IsNullOrEmpty(InitialArticle.Name) ? "User" : $"{InitialArticle.Name}")},
 
-Your submission {InitialArticle.Title} has been accepted by SEER moderators and is in the process of being analyzed by SEER analysts.
-Your submission should be available to view in the SEER database in around 24-48 hours.
+Your submission {InitialArticle.Title} has been rejected by SEER moderators for not meeting quality standards.
 
-Thank you for helping SEER grow.
 -- SEER Administration";
                     if (!String.IsNullOrEmpty(InitialArticle.Name))
                     {
@@ -80,14 +78,13 @@ Thank you for helping SEER grow.
                     }
                 }
 
+
                 _context.InitialArticle.Remove(InitialArticle);
                 await _context.SaveChangesAsync();
             }
 
             return RedirectToPage("./Moderate");
         }
-
-        // email function here
         public void SendEmail(string admin, string admin_email, string user, string user_email, string body)
         {
             var message = new MimeMessage();
