@@ -38,6 +38,16 @@
                 <span asp-validation-for="InitialArticle.DOI" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="InitialArticle.Name" class="control-label"></label>
+                <input asp-for="InitialArticle.Name" class="form-control" />
+                <span asp-validation-for="InitialArticle.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InitialArticle.Email" class="control-label"></label>
+                <input asp-for="InitialArticle.Email" class="form-control" />
+                <span asp-validation-for="InitialArticle.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Submit" class="btn btn-primary" />
             </div>
         </form>

@@ -28,7 +28,7 @@ namespace SEER
             services.AddRazorPages();
 
             services.AddDbContext<SEERContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("SEERContext")));
+                    options.UseMySQL(Configuration.GetConnectionString("SEERContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
