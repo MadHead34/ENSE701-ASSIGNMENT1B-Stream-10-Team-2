@@ -49,6 +49,12 @@ namespace SEER
 
             if (AcceptedArticle != null)
             {
+                if (string.IsNullOrEmpty(AcceptedArticle.Title) || string.IsNullOrEmpty(AcceptedArticle.Author) || string.IsNullOrEmpty(AcceptedArticle.Source) ||
+                    AcceptedArticle.Year < 1970 || AcceptedArticle.Year > 2020 || string.IsNullOrEmpty(AcceptedArticle.DOI) || string.IsNullOrEmpty(AcceptedArticle.SEMethod) ||
+                    string.IsNullOrEmpty(AcceptedArticle.Practice) || string.IsNullOrEmpty(AcceptedArticle.Method) || string.IsNullOrEmpty(AcceptedArticle.Participant) ||
+                    string.IsNullOrEmpty(AcceptedArticle.Result))
+                    return RedirectToPage("./Failure");
+
                 _context.BibliographicReference.Add(new BibliographicReference
                 {
                     Title = AcceptedArticle.Title,

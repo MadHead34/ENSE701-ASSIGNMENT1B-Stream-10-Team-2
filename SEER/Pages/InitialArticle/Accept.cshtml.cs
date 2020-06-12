@@ -72,11 +72,11 @@ Thank you for helping SEER grow.
 -- SEER Administration";
                     if (!String.IsNullOrEmpty(InitialArticle.Name))
                     {
-                        //SendEmail("SEER Administration", "admin@seer.com", InitialArticle.Name, InitialArticle.Email, body);
+                        SendEmail("SEER Administration", "admin@seer.com", InitialArticle.Name, InitialArticle.Email, body);
                     }
                     else
                     {
-                        //SendEmail("SEER Administration", "admin@seer.com", "User", InitialArticle.Email, body);
+                        SendEmail("SEER Administration", "admin@seer.com", "User", InitialArticle.Email, body);
                     }
                 }
 
@@ -85,6 +85,31 @@ Thank you for helping SEER grow.
             }
 
             return RedirectToPage("./Moderate");
+        }
+
+        // email function here
+        public void SendEmail(string admin, string admin_email, string user, string user_email, string body)
+        {
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress(admin, admin_email));
+            message.To.Add(new MailboxAddress(user, user_email));
+            message.Subject = "Testing";
+
+            message.Body = new TextPart("plain")
+            {
+                Text = body
+
+            };
+
+            using (var client = new SmtpClient())
+            {
+                client.Connect("smtp.gmail.com", 465, true);
+                client.Authenticate("testingseer123", "test123!@#");
+
+                client.Send(message);
+                client.Disconnect(true);
+            }
+
         }
     }
 }
