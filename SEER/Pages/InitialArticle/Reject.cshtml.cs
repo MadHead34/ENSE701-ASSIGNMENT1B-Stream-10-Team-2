@@ -1,20 +1,22 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using MimeKit;
 using SEER.Data;
 using SEER.Models;
 
 namespace SEER
 {
-    public class RejectModel : PageModel
+    public class AcceptModel : PageModel
     {
         private readonly SEER.Data.SEERContext _context;
 
-        public RejectModel(SEER.Data.SEERContext context)
+        public AcceptModel(SEER.Data.SEERContext context)
         {
             _context = context;
         }
@@ -49,8 +51,8 @@ namespace SEER
 
             if (InitialArticle != null)
             {
-                _context.RejectedArticle.Add(
-                    new RejectedArticle
+                _context.AcceptedArticle.Add(
+                    new AcceptedArticle
                     {
                         Title = InitialArticle.Title,
                         Author = InitialArticle.Author,
@@ -58,13 +60,34 @@ namespace SEER
                         Year = InitialArticle.Year,
                         DOI = InitialArticle.DOI
                     });
+
+                if (!String.IsNullOrEmpty(InitialArticle.Email))
+                {
+                    string body = $@"Dear {(String.IsNullOrEmpty(InitialArticle.Name) ? "User" : $"{InitialArticle.Name}")},
+
+Your submission {InitialArticle.Title} has been accepted by SEER moderators and is in the process of being analyzed by SEER analysts.
+Your submission should be available to view in the SEER database in around 24-48 hours.
+
+Thank you for helping SEER grow.
+-- SEER Administration";
+                    if (!String.IsNullOrEmpty(InitialArticle.Name))
+                    {
+                        SendEmail("SEER Administration", "admin@seer.com", InitialArticle.Name, InitialArticle.Email, body);
+                    }
+                    else
+                    {
+                        SendEmail("SEER Administration", "admin@seer.com", "User", InitialArticle.Email, body);
+                    }
+                }
+
                 _context.InitialArticle.Remove(InitialArticle);
                 await _context.SaveChangesAsync();
             }
 
             return RedirectToPage("./Moderate");
         }
-         // email function here
+
+        // email function here
         public void SendEmail(string admin, string admin_email, string user, string user_email, string body)
         {
             var message = new MimeMessage();
@@ -90,3 +113,4 @@ namespace SEER
         }
     }
 }
+
