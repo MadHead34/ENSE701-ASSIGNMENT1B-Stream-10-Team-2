@@ -26,5 +26,8 @@ namespace SEER.Models
         [Display(Order = 0)]
         [Url(ErrorMessage = "Enter a Url")]
         public string DOI { get; set; }
+        public string Name { get; set; }
+        [EmailAddress(ErrorMessage = "Enter a valid email address")]
+        public string Email { get; set; }
     }
 }

@@ -58,6 +58,25 @@ namespace SEER
                         Year = InitialArticle.Year,
                         DOI = InitialArticle.DOI
                     });
+
+                if (!String.IsNullOrEmpty(InitialArticle.Email))
+                {
+                    string body = $@"Dear {(String.IsNullOrEmpty(InitialArticle.Name) ? "User" : $"{InitialArticle.Name}")},
+
+Your submission {InitialArticle.Title} has been rejected by SEER moderators for not meeting quality standards.
+
+-- SEER Administration";
+                    if (!String.IsNullOrEmpty(InitialArticle.Name))
+                    {
+                        //SendEmail("SEER Administration", "admin@seer.com", InitialArticle.Name, InitialArticle.Email, body);
+                    }
+                    else
+                    {
+                        //SendEmail("SEER Administration", "admin@seer.com", "User", InitialArticle.Email, body);
+                    }
+                }
+
+
                 _context.InitialArticle.Remove(InitialArticle);
                 await _context.SaveChangesAsync();
             }
