@@ -1,10 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using MimeKit;
 using SEER.Data;
 using SEER.Models;
 
@@ -68,11 +70,11 @@ Your submission {InitialArticle.Title} has been rejected by SEER moderators for 
 -- SEER Administration";
                     if (!String.IsNullOrEmpty(InitialArticle.Name))
                     {
-                        //SendEmail("SEER Administration", "admin@seer.com", InitialArticle.Name, InitialArticle.Email, body);
+                        SendEmail("SEER Administration", "admin@seer.com", InitialArticle.Name, InitialArticle.Email, body);
                     }
                     else
                     {
-                        //SendEmail("SEER Administration", "admin@seer.com", "User", InitialArticle.Email, body);
+                        SendEmail("SEER Administration", "admin@seer.com", "User", InitialArticle.Email, body);
                     }
                 }
 
@@ -83,5 +85,29 @@ Your submission {InitialArticle.Title} has been rejected by SEER moderators for 
 
             return RedirectToPage("./Moderate");
         }
+        public void SendEmail(string admin, string admin_email, string user, string user_email, string body)
+        {
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress(admin, admin_email));
+            message.To.Add(new MailboxAddress(user, user_email));
+            message.Subject = "Testing";
+
+            message.Body = new TextPart("plain")
+            {
+                Text = body
+
+            };
+
+            using (var client = new SmtpClient())
+            {
+                client.Connect("smtp.gmail.com", 465, true);
+                client.Authenticate("testingseer123", "test123!@#");
+
+                client.Send(message);
+                client.Disconnect(true);
+            }
+
+        }
     }
 }
+
