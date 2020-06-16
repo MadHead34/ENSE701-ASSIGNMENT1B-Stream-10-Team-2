@@ -1,1 +1,0 @@
-INSERT INTO AcceptedArticle (Title, Author, Source, Year, DOI, SEMethod, Practice, Method, Participant, Result) VALUES ('Test', 'Test', 'Test', 2020, 'Test', 'Test', 'Test', 'Test', 'Test', 'Test');
