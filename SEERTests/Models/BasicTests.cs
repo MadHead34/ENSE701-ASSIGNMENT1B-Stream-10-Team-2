@@ -28,7 +28,6 @@ namespace SEER.Models.Tests
         [InlineData("/BibliographicReferences/Create")]
         [InlineData("/BibliographicReferences/Index")]
         [InlineData("/BibliographicReferences/Search")]
-        [InlineData("/AcceptedArticle/Failure")]
         [InlineData("/AcceptedArticle/Index")]
         public async Task Get_EndpointsReturnSuccessAndCorrectContentType(string url)
         {
