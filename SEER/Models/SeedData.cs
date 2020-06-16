@@ -25,7 +25,6 @@ namespace SEER.Models
             {
                 try
                 {
-                    // TODO: Setup switches or something with a foreach loop over the entry.Tags keys
                     using StreamReader sr = new StreamReader("input.txt", Encoding.Default);
                     BibtexFile file = BibtexImporter.FromString(sr.ReadToEnd().Replace("'", "", StringComparison.Ordinal));
 
